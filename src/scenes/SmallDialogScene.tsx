@@ -2,8 +2,8 @@ import { FunctionComponent } from 'types/FunctionComponent'
 import { Dialog } from 'components/dialog/Dialog'
 import { useVisibility } from 'hooks/useVisibility'
 import { singleChildCentered } from 'utils/styles'
-import { SceneHeader } from 'components/header/SceneHeader'
-import { DialogSceneProps } from 'scenes/DialogSceneProps'
+import { SceneHeader } from 'scenes/components/header/SceneHeader'
+import { DialogSceneProps } from 'scenes/types/DialogSceneProps'
 
 
 export const SmallDialogScene: FunctionComponent<DialogSceneProps> = ({
@@ -14,6 +14,7 @@ export const SmallDialogScene: FunctionComponent<DialogSceneProps> = ({
   return (
     <>
       <SceneHeader onBackClick={onBackClick} />
+
       <div
         css={[singleChildCentered, {
           height: '100%', 

@@ -4,8 +4,8 @@ import { useVisibility } from 'hooks/useVisibility'
 import { singleChildCentered } from 'utils/styles'
 import bigImage from 'assets/big.jpg'
 import { css } from '@emotion/react'
-import { SceneHeader } from 'components/header/SceneHeader'
-import { DialogSceneProps } from 'scenes/DialogSceneProps'
+import { SceneHeader } from 'scenes/components/header/SceneHeader'
+import { DialogSceneProps } from 'scenes/types/DialogSceneProps'
 
 
 const styles = {
@@ -22,6 +22,7 @@ export const BigDialogScene: FunctionComponent<DialogSceneProps> = ({
   return (
     <>
       <SceneHeader onBackClick={onBackClick} />
+
       <div
         css={[singleChildCentered, {
           height: '100%', 

@@ -6,6 +6,7 @@ import {
 } from 'react'
 import { SmallDialogScene } from 'scenes/SmallDialogScene'
 import { singleChildCentered } from 'utils/styles'
+import { SceneHeader } from 'scenes/components/header/SceneHeader'
 
 
 enum SceneName {
@@ -34,22 +35,26 @@ export const App: FunctionComponentWithoutProps = () => {
 
     default:
       return (
-        <div
-          css={[singleChildCentered, {
-            height: '100%',
-          }]}
-        >
-          <button
-            onClick={onClickSelectScene(SceneName.SmallDialog)}
+        <>
+          <SceneHeader />
+
+          <div
+            css={[singleChildCentered, {
+              height: '100%',
+            }]}
           >
-            Dialog Pequeno
-          </button>
-          <button
-            onClick={onClickSelectScene(SceneName.BigDialog)}
-          >
-            Dialog Grande
-          </button>
-        </div>
+            <button
+              onClick={onClickSelectScene(SceneName.SmallDialog)}
+            >
+              {'Dialog Pequeno'}
+            </button>
+            <button
+              onClick={onClickSelectScene(SceneName.BigDialog)}
+            >
+              {'Dialog Grande'}
+            </button>
+          </div>
+        </>
       )
   }
 }

@@ -3,14 +3,10 @@ import { FunctionComponent } from 'types/FunctionComponent'
 import { WithChildren } from 'types/WithChildren'
 import { Overlay } from 'components/overlay/Overlay'
 import { css } from '@emotion/react'
-import {
-  circleOf,
-  singleChildCentered,
-  squareOf,
-} from 'utils/styles'
 import closeSvg from 'assets/close.svg'
 import { MouseEventHandler } from 'react'
 import { Colors } from 'utils/Colors'
+import { IconButton } from 'components/button/IconButton'
 
 
 const styles = {
@@ -44,14 +40,6 @@ const styles = {
     fontSize: '24px',
     fontWeight: 600,
     lineHeight: '32px',
-  }),
-  closeIcon: css({
-    ...squareOf(24),
-  }),
-  closeButton: css({
-    ...circleOf(48),
-    ...singleChildCentered,
-    backgroundColor: Colors.DialogBackground,
   }),
 }
 
@@ -89,16 +77,11 @@ export const Dialog: FunctionComponent<DialogProps> = ({
           <div css={styles.header}>
             <h3 css={[styles.text, styles.title]}>{title}</h3>
 
-            <button
-              css={styles.closeButton}
+            <IconButton
+              src={closeSvg}
+              alt="fechar"
               onClick={onClose}
-            >
-              <img
-                css={styles.closeIcon}
-                src={closeSvg}
-                alt="fechar"
-              />
-            </button>
+            />
           </div>
 
           <div css={[styles.text, styles.body]}>
