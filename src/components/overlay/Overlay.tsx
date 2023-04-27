@@ -1,7 +1,7 @@
-import { VoidFunctionWithoutParam } from 'types/VoidFunction'
 import { FunctionComponent } from 'types/FunctionComponent'
 import { WithChildren } from 'types/WithChildren'
 import { css } from '@emotion/react'
+import { MouseEventHandler } from 'react'
 
 
 const styles = {
@@ -17,7 +17,7 @@ const styles = {
 }
 
 interface OverlayProps extends WithChildren {
-  onClick: VoidFunctionWithoutParam
+  onClick: MouseEventHandler
 }
 
 export const Overlay: FunctionComponent<OverlayProps> = ({
