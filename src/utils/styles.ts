@@ -1,11 +1,11 @@
 export const squareOf = (size: number) => ({
-  width: size,
-  height: size,
+  width: `${size}px`,
+  height: `${size}px`,
 })
 
 export const circleOf = (size: number) => ({
   ...squareOf(size),
-  borderRadius: size / 2,
+  borderRadius: `${size / 2}px`,
 })
 
 export const singleChildCentered = {

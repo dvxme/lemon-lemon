@@ -6,6 +6,7 @@ import { css } from '@emotion/react'
 import {
   circleOf,
   singleChildCentered,
+  squareOf,
 } from 'utils/styles'
 import closeSvg from 'assets/close.svg'
 import { MouseEventHandler } from 'react'
@@ -42,6 +43,9 @@ const styles = {
     fontSize: '24px',
     fontWeight: 600,
     lineHeight: '32px',
+  }),
+  closeIcon: css({
+    ...squareOf(24),
   }),
   closeButton: css({
     ...circleOf(48),
@@ -89,6 +93,7 @@ export const Dialog: FunctionComponent<DialogProps> = ({
               onClick={onClose}
             >
               <img
+                css={styles.closeIcon}
                 src={closeSvg}
                 alt="fechar"
               />
