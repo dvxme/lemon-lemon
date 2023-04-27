@@ -1,9 +1,11 @@
-import { FunctionComponentWithoutProps } from 'types/FunctionComponent'
+import { FunctionComponent } from 'types/FunctionComponent'
 import { Dialog } from 'components/dialog/Dialog'
 import { useVisibility } from 'hooks/useVisibility'
 import { singleChildCentered } from 'utils/styles'
 import bigImage from 'assets/big.jpg'
 import { css } from '@emotion/react'
+import { SceneHeader } from 'components/header/SceneHeader'
+import { DialogSceneProps } from 'scenes/DialogSceneProps'
 
 
 const styles = {
@@ -12,11 +14,14 @@ const styles = {
   }),
 }
 
-export const BigDialogScene: FunctionComponentWithoutProps = () => {
+export const BigDialogScene: FunctionComponent<DialogSceneProps> = ({
+  onBackClick, 
+}) => {
   const [isDialogVisible, dialogVisibility] = useVisibility(false)
   
   return (
     <>
+      <SceneHeader onBackClick={onBackClick} />
       <div
         css={[singleChildCentered, {
           height: '100%', 

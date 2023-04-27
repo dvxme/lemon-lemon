@@ -2,6 +2,7 @@ import { FunctionComponent } from 'types/FunctionComponent'
 import { WithChildren } from 'types/WithChildren'
 import { css } from '@emotion/react'
 import { MouseEventHandler } from 'react'
+import { Colors } from 'utils/Colors'
 
 
 const styles = {
@@ -12,7 +13,7 @@ const styles = {
     left: 0,
     right: 0,
 
-    backgroundColor: 'rgba(0, 0, 0, .85)',
+    backgroundColor: Colors.OverlayBackground,
   }),
 }
 
@@ -23,13 +24,10 @@ interface OverlayProps extends WithChildren {
 export const Overlay: FunctionComponent<OverlayProps> = ({
   onClick,
   children,
-}) => {
-  return (
-    <div
-      onClick={onClick}
-      css={styles.overlay}
-    >
-      {children}
-    </div>
-  )
-}
+}) =>
+  <div
+    onClick={onClick}
+    css={styles.overlay}
+  >
+    {children}
+  </div>

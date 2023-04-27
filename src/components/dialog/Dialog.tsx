@@ -10,6 +10,7 @@ import {
 } from 'utils/styles'
 import closeSvg from 'assets/close.svg'
 import { MouseEventHandler } from 'react'
+import { Colors } from 'utils/Colors'
 
 
 const styles = {
@@ -28,7 +29,7 @@ const styles = {
     flex: 0,
   }),
   text: css({
-    color: '#333',
+    color: Colors.Text,
     textAlign: 'left',
   }),
   body: css({
@@ -50,7 +51,7 @@ const styles = {
   closeButton: css({
     ...circleOf(48),
     ...singleChildCentered,
-    backgroundColor: 'transparent',
+    backgroundColor: Colors.DialogBackground,
   }),
 }
 
@@ -71,8 +72,8 @@ export const Dialog: FunctionComponent<DialogProps> = ({
   onClose,
   closeOnOverlayClick,
   children,
-}) => {
-  return isOpen
+}) =>
+  isOpen
     ? (
       <Overlay
         onClick={
@@ -107,4 +108,3 @@ export const Dialog: FunctionComponent<DialogProps> = ({
       </Overlay>
     )
     : null
-}
