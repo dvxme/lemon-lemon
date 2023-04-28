@@ -28,6 +28,7 @@ export const Overlay: FunctionComponent<OverlayProps> = ({
   <div
     onClick={onClick}
     css={styles.overlay}
+    data-testid="overlay"
   >
     {children}
   </div>
