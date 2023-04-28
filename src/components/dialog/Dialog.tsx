@@ -15,7 +15,7 @@ const styles = {
     position: 'absolute',
     bottom: 0,
     padding: '8px 32px 32px',
-    backgroundColor: 'white',
+    backgroundColor: Colors.DialogBackground,
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '90%',
