@@ -7,7 +7,7 @@ Resolução do case do componente Dialog como processo seletivo da Lemon.
 Após clonar o repo, o projeto pode ser instalado via:
 
 ```shell
-npm run install
+npm install
 ```
 
 Uma vez que as dependências foram instaladas com sucesso,
