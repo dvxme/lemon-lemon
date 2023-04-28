@@ -7,6 +7,7 @@ import closeSvg from 'assets/close.svg'
 import { MouseEventHandler } from 'react'
 import { Colors } from 'utils/Colors'
 import { IconButton } from 'components/button/IconButton'
+import { useOnKeyDown } from 'hooks/useOnKeyDown'
 
 
 const styles = {
@@ -60,34 +61,41 @@ export const Dialog: FunctionComponent<DialogProps> = ({
   onClose,
   closeOnOverlayClick,
   children,
-}) =>
-  isOpen
-    ? (
-      <Overlay
-        onClick={
-          closeOnOverlayClick
-            ? onClose
-            : onClickStopPropagation
-        }
-      >
-        <div
-          css={styles.content}
-          onClick={onClickStopPropagation}
+}) => {
+  useOnKeyDown({
+    key: 'Escape',
+    onKeyDown: onClose,
+  })
+  return (
+    isOpen
+      ? (
+        <Overlay
+          onClick={
+            closeOnOverlayClick
+              ? onClose
+              : onClickStopPropagation
+          }
         >
-          <div css={styles.header}>
-            <h3 css={[styles.text, styles.title]}>{title}</h3>
+          <div
+            css={styles.content}
+            onClick={onClickStopPropagation}
+          >
+            <div css={styles.header}>
+              <h3 css={[styles.text, styles.title]}>{title}</h3>
 
-            <IconButton
-              src={closeSvg}
-              alt="fechar"
-              onClick={onClose}
-            />
-          </div>
+              <IconButton
+                src={closeSvg}
+                alt="fechar"
+                onClick={onClose}
+              />
+            </div>
 
-          <div css={[styles.text, styles.body]}>
-            {children}
+            <div css={[styles.text, styles.body]}>
+              {children}
+            </div>
           </div>
-        </div>
-      </Overlay>
-    )
-    : null
+        </Overlay>
+      )
+      : null
+  )
+}
