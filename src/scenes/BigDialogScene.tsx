@@ -1,11 +1,12 @@
 import { FunctionComponent } from 'types/FunctionComponent'
 import { Dialog } from 'components/dialog/Dialog'
 import { useVisibility } from 'hooks/useVisibility'
-import { singleChildCentered } from 'utils/styles'
 import bigImage from 'assets/big.jpg'
 import { css } from '@emotion/react'
 import { SceneHeader } from 'scenes/components/header/SceneHeader'
 import { DialogSceneProps } from 'scenes/types/DialogSceneProps'
+import { SceneBody } from 'scenes/components/body/SceneBody'
+import { Button } from 'components/button/Button'
 
 
 const styles = {
@@ -23,19 +24,16 @@ export const BigDialogScene: FunctionComponent<DialogSceneProps> = ({
     <>
       <SceneHeader onBackClick={onBackClick} />
 
-      <div
-        css={[singleChildCentered, {
-          height: '100%', 
-        }]}
-      >
-        <button
+      <SceneBody>
+        <Button
           onClick={dialogVisibility.show}
         >
-          {'Clica vai'}
-        </button>
-      </div>
+          {'Abrir Dialog Grande'}
+        </Button>
+      </SceneBody>
+
       <Dialog
-        title={'Título Grande'}
+        title={'Título do Grande'}
         closeOnOverlayClick
         isOpen={isDialogVisible}
         onClose={dialogVisibility.hide}

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'types/FunctionComponent'
 import {
   css,
-  SerializedStyles,
+  jsx,
 } from '@emotion/react'
 import {
   circleOf,
@@ -21,14 +21,13 @@ const styles = {
   }),
 }
 
-type Tag = JSX.IntrinsicElements
+type Tag = jsx.JSX.IntrinsicElements
 type IconButtonProps =
   Tag['button']
   & Required<Pick<Tag['button'], 'onClick'>>
   & Required<Pick<Tag['img'], 'src' | 'alt'>>
   & {
-    css?: SerializedStyles
-    imgCss?: SerializedStyles
+    imgCss?: Tag['img']['css']
   }
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({

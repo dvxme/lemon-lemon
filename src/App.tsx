@@ -5,13 +5,21 @@ import {
   useState,
 } from 'react'
 import { SmallDialogScene } from 'scenes/SmallDialogScene'
-import { singleChildCentered } from 'utils/styles'
 import { SceneHeader } from 'scenes/components/header/SceneHeader'
+import { SceneBody } from 'scenes/components/body/SceneBody'
+import { Button } from 'components/button/Button'
+import { css } from '@emotion/react'
 
 
 enum SceneName {
   SmallDialog = 'small-dialog',
   BigDialog = 'big-dialog',
+}
+
+const styles = {
+  buttonDistance: css({
+    height: '16px',
+  }),
 }
 
 export const App: FunctionComponentWithoutProps = () => {
@@ -38,22 +46,21 @@ export const App: FunctionComponentWithoutProps = () => {
         <>
           <SceneHeader />
 
-          <div
-            css={[singleChildCentered, {
-              height: '100%',
-            }]}
-          >
-            <button
+          <SceneBody>
+            <Button
               onClick={onClickSelectScene(SceneName.SmallDialog)}
             >
               {'Dialog Pequeno'}
-            </button>
-            <button
+            </Button>
+
+            <div css={styles.buttonDistance} />
+
+            <Button
               onClick={onClickSelectScene(SceneName.BigDialog)}
             >
               {'Dialog Grande'}
-            </button>
-          </div>
+            </Button>
+          </SceneBody>
         </>
       )
   }

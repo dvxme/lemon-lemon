@@ -1,9 +1,10 @@
 import { FunctionComponent } from 'types/FunctionComponent'
 import { Dialog } from 'components/dialog/Dialog'
 import { useVisibility } from 'hooks/useVisibility'
-import { singleChildCentered } from 'utils/styles'
 import { SceneHeader } from 'scenes/components/header/SceneHeader'
 import { DialogSceneProps } from 'scenes/types/DialogSceneProps'
+import { SceneBody } from 'scenes/components/body/SceneBody'
+import { Button } from 'components/button/Button'
 
 
 export const SmallDialogScene: FunctionComponent<DialogSceneProps> = ({
@@ -15,19 +16,16 @@ export const SmallDialogScene: FunctionComponent<DialogSceneProps> = ({
     <>
       <SceneHeader onBackClick={onBackClick} />
 
-      <div
-        css={[singleChildCentered, {
-          height: '100%', 
-        }]}
-      >
-        <button
+      <SceneBody>
+        <Button
           onClick={dialogVisibility.show}
         >
-          {'Clica vai'}
-        </button>
-      </div>
+          {'Abrir Dialog Pequeno'}
+        </Button>
+      </SceneBody>
+
       <Dialog
-        title={'Título Pequeno'}
+        title={'Título do Pequeno'}
         closeOnOverlayClick
         isOpen={isDialogVisible}
         onClose={dialogVisibility.hide}
