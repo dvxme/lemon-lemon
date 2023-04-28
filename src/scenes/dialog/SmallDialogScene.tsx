@@ -1,10 +1,9 @@
 import { FunctionComponent } from 'types/FunctionComponent'
 import { Dialog } from 'components/dialog/Dialog'
 import { useVisibility } from 'hooks/useVisibility'
-import { SceneHeader } from 'scenes/components/header/SceneHeader'
-import { DialogSceneProps } from 'scenes/types/DialogSceneProps'
-import { SceneBody } from 'scenes/components/body/SceneBody'
+import { DialogSceneProps } from 'scenes/dialog/types/DialogSceneProps'
 import { Button } from 'components/button/Button'
+import { SceneTemplate } from 'templates/scene/SceneTemplate'
 
 
 export const SmallDialogScene: FunctionComponent<DialogSceneProps> = ({
@@ -14,15 +13,13 @@ export const SmallDialogScene: FunctionComponent<DialogSceneProps> = ({
   
   return (
     <>
-      <SceneHeader onBackClick={onBackClick} />
-
-      <SceneBody>
+      <SceneTemplate onBackClick={onBackClick}>
         <Button
           onClick={dialogVisibility.show}
         >
           {'Abrir Dialog Pequeno'}
         </Button>
-      </SceneBody>
+      </SceneTemplate>
 
       <Dialog
         title={'Título do Pequeno'}

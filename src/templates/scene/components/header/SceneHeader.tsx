@@ -22,7 +22,7 @@ const styles = {
   }),
 }
 
-interface SceneHeaderProps {
+export interface SceneHeaderProps {
   onBackClick?: MouseEventHandler
 }
 

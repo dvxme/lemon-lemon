@@ -3,10 +3,9 @@ import { Dialog } from 'components/dialog/Dialog'
 import { useVisibility } from 'hooks/useVisibility'
 import bigImage from 'assets/big.jpg'
 import { css } from '@emotion/react'
-import { SceneHeader } from 'scenes/components/header/SceneHeader'
-import { DialogSceneProps } from 'scenes/types/DialogSceneProps'
-import { SceneBody } from 'scenes/components/body/SceneBody'
+import { DialogSceneProps } from 'scenes/dialog/types/DialogSceneProps'
 import { Button } from 'components/button/Button'
+import { SceneTemplate } from 'templates/scene/SceneTemplate'
 
 
 const styles = {
@@ -22,15 +21,13 @@ export const BigDialogScene: FunctionComponent<DialogSceneProps> = ({
   
   return (
     <>
-      <SceneHeader onBackClick={onBackClick} />
-
-      <SceneBody>
+      <SceneTemplate onBackClick={onBackClick}>
         <Button
           onClick={dialogVisibility.show}
         >
           {'Abrir Dialog Grande'}
         </Button>
-      </SceneBody>
+      </SceneTemplate>
 
       <Dialog
         title={'Título do Grande'}
